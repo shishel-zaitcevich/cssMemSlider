@@ -14,10 +14,10 @@ body {
 
 .wrapper {
   max-width: 100%;
-  min-height: 100%;
+
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+
 }
 
 .logo {
@@ -29,10 +29,11 @@ body {
 }
 
 .slides_container {
-  width: 50%;
+  width: 70%;
   overflow-x: hidden;
   margin-left: auto;
   margin-right: auto;
+ 
 }
 
 .slider {
@@ -41,19 +42,27 @@ body {
   display: flex;
   margin-top: 3%;
   transition: all 1s ease;
+
 }
 
 .slides {
   display: flex;
   width: 50%;
+  min-height: 50vh;    /*fit-content; */
   margin-left: auto;
   margin-right: auto;
+
 }
 
 .gifs {
   margin-left: auto;
   margin-right: auto;
   object-fit: contain;
+  border-image-source: url(./assets/1.png);
+  border-image-slice: 33% fill;    
+  border-image-width: auto; /* можно просто auto, эффект будет тот же */
+  border-image-outset: 1.5em 10em 2.5em 8.5em;
+
 }
 
 .wrapper > input {
@@ -63,35 +72,34 @@ body {
 .wrapper label {
   cursor: pointer;
   display: inline-block;
-  height: 1.5em;
+  height: 2.5em;
   margin: 10% 3% 0 3%;
-  position: relative;
-  width: 1.5em;
-  border-radius: 50%;
-  border: 2px solid white;
+  width: 2.5em;
 }
 
-.wrapper label:hover {
+.control{
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 2px solid white;
+  text-align: center;
+}
+
+.wrapper label:hover .control{
   background: #ddd;
 }
 
-.wrapper #slide1:checked ~ .footer .controls label:nth-of-type(1) {
+.wrapper #slide1:checked ~ .footer .controls label:nth-of-type(1) .control,
+.wrapper #slide4:checked ~ .footer .controls label:nth-of-type(4) .control {
   background-color: #e01d23;
 }
 
-.wrapper #slide1:checked ~ .footer .controls label:nth-of-type(2) {
+.wrapper #slide2:checked ~ .footer .controls label:nth-of-type(2) .control {
   background: #02b2e7;
 }
 
-.wrapper #slide1:checked ~ .footer .controls label:nth-of-type(3) {
-  background: #fabc16;
-}
-
-.wrapper #slide1:checked ~ .footer .controls label:nth-of-type(4) {
-  background-color: #e01d23;
-}
-
-.wrapper #slide1:checked ~ .footer .controls label:nth-of-type(5) {
+.wrapper #slide3:checked ~ .footer .controls label:nth-of-type(3) .control,
+.wrapper #slide5:checked ~ .footer .controls label:nth-of-type(5) .control{
   background: #fabc16;
 }
 
@@ -120,7 +128,7 @@ body {
   display: flex;
   width: 36vw;
   justify-content: space-between;
-  padding-top: 5vh;
+  padding-top: 2vh;
   align-items: flex-start;
   margin-left: auto;
   margin-right: auto;
@@ -142,6 +150,41 @@ body {
 .controls {
   width: 15vw;
   margin-left: 5%;
+  display: flex;
+}
+
+.control_box{
+  width: 3em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1515px) {
+  .logo-img {
+    width: 80%;
+  }
+  .slides{
+    min-height: 50vh;
+  }
+  /* .gifs{
+    border-image: none;
+  }  */
+  .footer {
+    width: 80vw;
+  }
+  .text_container {
+    width: 80vw;
+}
+.text{
+  width: 80vw;
+}
+  .controls{
+    width: 40vw;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -151,10 +194,55 @@ body {
   .slides {
     width: 30%;
   }
-  /* не работает */
   .footer {
     flex-direction: column-reverse;
-    width: 65vw;
+    width: 80vw;
     align-items: center;
   }
+  .slider_container{
+    width: 500%;
+  }
+  .text_container {
+    width: 80vw;
+}
+  .controls{
+    width: 33vw;
+  }
+ .text{
+   width: 80vw;
+ }
+}
+
+@media screen and (max-width: 680px) {
+  .logo-img {
+    width: 70vw;
+  }
+  .gifs{
+    width: 70vw;
+  }
+  .slides {
+    width: 100vw;
+  }
+
+.footer {
+  width: 310px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slider_container{
+  width: 500%;
+}
+
+.controls{
+  width: 250px;
+
+}
+.text_container {
+
+    width: 310px;
+}
+.text{
+  width: 310px;
+}
 }
