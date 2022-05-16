@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #745fb5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper {
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  justify-content: center;
+  align-items: center;
+}
+
+.slides_container {
+  width: 70%;
+  overflow-x: hidden;
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+
+.slider {
+  width: 500%;
+  height: 90%;
+  display: flex;
+  margin-top: 3%;
+  transition: all 1s ease;
+
+}
+
+.slides {
+  display: flex;
+  width: 50%;
+  min-height: 50vh;    /*fit-content; */
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.gifs {
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
+  border-image-source: url(./assets/1.png);
+  border-image-slice: 33% fill;    
+  border-image-width: auto; /* можно просто auto, эффект будет тот же */
+  border-image-outset: 1.5em 10em 2.5em 8.5em;
+
+}
+
+.wrapper > input {
+  display: none;
+}
+
+.wrapper label {
+  cursor: pointer;
+  display: inline-block;
+  height: 2.5em;
+  margin: 10% 3% 0 3%;
+  width: 2.5em;
+}
+
+.control{
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 2px solid white;
+  text-align: center;
+}
+
+.wrapper label:hover .control{
+  background: #ddd;
+}
+
+.wrapper #slide1:checked ~ .footer .controls label:nth-of-type(1) .control,
+.wrapper #slide4:checked ~ .footer .controls label:nth-of-type(4) .control {
+  background-color: #e01d23;
+}
+
+.wrapper #slide2:checked ~ .footer .controls label:nth-of-type(2) .control {
+  background: #02b2e7;
+}
+
+.wrapper #slide3:checked ~ .footer .controls label:nth-of-type(3) .control,
+.wrapper #slide5:checked ~ .footer .controls label:nth-of-type(5) .control{
+  background: #fabc16;
+}
+
+#slide1:checked ~ .slides_container .slider,
+#slide1:checked ~ .footer .slider {
+  transform: translateX(0%);
+}
+#slide2:checked ~ .slides_container .slider,
+#slide2:checked ~ .footer .slider {
+  transform: translateX(calc(100% / 5 * (-1)));
+}
+#slide3:checked ~ .slides_container .slider,
+#slide3:checked ~ .footer .slider {
+  transform: translateX(calc(200% / 5 * (-1)));
+}
+#slide4:checked ~ .slides_container .slider,
+#slide4:checked ~ .footer .slider {
+  transform: translateX(calc(300% / 5 * (-1)));
+}
+#slide5:checked ~ .slides_container .slider,
+#slide5:checked ~ .footer .slider {
+  transform: translateX(calc(400% / 5 * (-1)));
+}
+
+.footer {
+  display: flex;
+  width: 36vw;
+  justify-content: space-between;
+  padding-top: 2vh;
+  align-items: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text_container {
+  width: 25vw;
+  overflow: hidden;
+}
+
+.text {
+  color: white;
+  width: 25vw;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.controls {
+  width: 15vw;
+  margin-left: 5%;
+  display: flex;
+}
+
+.control_box{
+  width: 3em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1515px) {
+  .logo-img {
+    width: 80%;
+  }
+  .slides{
+    min-height: 50vh;
+  }
+  .gifs{
+    border-image: none;
+  } 
+  .footer {
+    width: 80vw;
+  }
+  .text_container {
+    width: 80vw;
+}
+.text{
+  width: 80vw;
+}
+  .controls{
+    width: 40vw;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .logo-img {
+    width: 50%;
+  }
+  .slides {
+    width: 30%;
+  }
+  .footer {
+    flex-direction: column-reverse;
+    width: 80vw;
+    align-items: center;
+  }
+  .slider_container{
+    width: 500%;
+  }
+  .text_container {
+    width: 80vw;
+}
+  .controls{
+    width: 33vw;
+  }
+ .text{
+   width: 80vw;
+ }
+}
+
+@media screen and (max-width: 680px) {
+  .logo-img {
+    width: 70vw;
+  }
+  .gifs{
+    width: 70vw;
+  }
+  .slides {
+    width: 100vw;
+  }
+
+.footer {
+  width: 310px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slider_container{
+  width: 500%;
+}
+
+.controls{
+  width: 250px;
+
+}
+.text_container {
+
+    width: 310px;
+}
+.text{
+  width: 310px;
+}
+}
