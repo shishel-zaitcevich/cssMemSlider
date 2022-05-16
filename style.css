@@ -234,6 +234,12 @@ body {
  }
 }
 
+@media (max-height: 1000px) and (max-width: 905px){
+  .slides {
+   min-height: 14em;
+  }
+}
+
 @media screen and (max-width: 680px) {
   .logo-img {
     width: 70vw;
@@ -266,10 +272,4 @@ body {
 .text{
   width: 310px;
 }
-}
-
-@media (max-height: 1000px) and (max-width: 905px){
-  .slides {
-   min-height: 33em;
-  }
 }
