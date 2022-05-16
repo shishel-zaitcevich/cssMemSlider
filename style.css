@@ -169,9 +169,9 @@ body {
   .slides{
     min-height: 50vh;
   }
-  /* .gifs{
+  .gifs{
     border-image: none;
-  }  */
+  } 
   .footer {
     width: 80vw;
   }
